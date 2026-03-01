@@ -8,156 +8,635 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg: #0e0e0e; --surface: #161616; --border: #2a2a2a; --text: #e8e4dc; --muted: #7a7570; --accent-a: #c0392b; --accent-p: #2980b9; --accent-z: #6c7a7a; --gold: #b8a878; }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; font-weight: 300; min-height: 100vh; padding: 60px 24px 80px; }
-  .page { max-width: 860px; margin: 0 auto; }
-  .header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 48px; }
-  .brand { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 5vw, 48px); letter-spacing: -0.01em; line-height: 1.1; color: var(--text); margin-bottom: 12px; }
-  h1 em { font-style: italic; color: var(--gold); }
-  .subtitle { font-size: 11px; letter-spacing: 0.15em; color: var(--muted); }
-  .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 56px; }
-  .summary-card { background: var(--surface); padding: 28px 24px; }
-  .shaft-label { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
-  .shaft-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .shaft-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.05em; }
-  .shaft-name.a { color: var(--accent-a); } .shaft-name.p { color: var(--accent-p); } .shaft-name.z { color: var(--accent-z); }
-  .dot-a { background: var(--accent-a); } .dot-p { background: var(--accent-p); } .dot-z { background: var(--accent-z); }
-  .kick-point { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-  .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
-  .badge { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--muted); }
-  .summary-text { font-size: 11.5px; line-height: 1.75; color: #a09a94; }
-  .predecessor { margin-top: 14px; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
-  .predecessor span { color: var(--gold); }
-  .profile-section { margin-bottom: 56px; }
-  .section-title { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-  .profile-table { width: 100%; border-collapse: collapse; }
-  .profile-table th { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
-  .profile-table td { font-size: 11px; padding: 10px 12px; border-bottom: 1px solid #1e1e1e; vertical-align: middle; }
+
+  :root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --text: #e8e4dc;
+    --muted: #7a7570;
+    --accent-a: #c0392b;
+    --accent-p: #2980b9;
+    --accent-z: #6c7a7a;
+    --gold: #b8a878;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 60px 24px 80px;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(28px, 5vw, 48px);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .subtitle {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+
+  /* Summary grid */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 56px;
+  }
+
+  .summary-card {
+    background: var(--surface);
+    padding: 28px 24px;
+  }
+
+  .shaft-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .shaft-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .shaft-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .shaft-name.a { color: var(--accent-a); }
+  .shaft-name.p { color: var(--accent-p); }
+  .shaft-name.z { color: var(--accent-z); }
+
+  .dot-a { background: var(--accent-a); }
+  .dot-p { background: var(--accent-p); }
+  .dot-z { background: var(--accent-z); }
+
+  .kick-point {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .badge {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .summary-text {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  .predecessor {
+    margin-top: 14px;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .predecessor span {
+    color: var(--gold);
+  }
+
+  /* Profile bars */
+  .profile-section {
+    margin-bottom: 56px;
+  }
+
+  .section-title {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .profile-table th {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-table td {
+    font-size: 13px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #1e1e1e;
+    vertical-align: middle;
+  }
+
   .profile-table tr:last-child td { border-bottom: none; }
-  .shaft-id { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; letter-spacing: 0.05em; }
-  .stars { display: flex; gap: 3px; }
-  .star { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
+
+  .shaft-id {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+  }
+
+  .star { 
+    width: 7px; 
+    height: 7px; 
+    border-radius: 50%;
+    background: var(--border);
+  }
+
   .star.filled { background: var(--gold); }
-  .shaft-section { margin-bottom: 48px; }
-  .shaft-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 6px; }
-  .shaft-section-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; }
-  .shaft-section-name.a { color: var(--accent-a); } .shaft-section-name.p { color: var(--accent-p); } .shaft-section-name.z { color: var(--accent-z); }
-  .shaft-desc { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-  .spec-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 12px; }
-  .spec-table th { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-align: right; padding: 8px 14px; border-bottom: 1px solid var(--border); font-weight: 400; }
-  .spec-table th:first-child, .spec-table th:nth-child(2) { text-align: left; }
-  .spec-table td { text-align: right; padding: 9px 14px; border-bottom: 1px solid #1a1a1a; color: #c8c3ba; font-variant-numeric: tabular-nums; }
-  .spec-table td:first-child, .spec-table td:nth-child(2) { text-align: left; }
+
+  /* Spec tables */
+  .shaft-section {
+    margin-bottom: 48px;
+  }
+
+  .shaft-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+
+  .shaft-section-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .shaft-section-name.a { color: var(--accent-a); }
+  .shaft-section-name.p { color: var(--accent-p); }
+  .shaft-section-name.z { color: var(--accent-z); }
+
+  .shaft-desc {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 13px;
+  }
+
+  .spec-table th {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 400;
+  }
+
+  .spec-table th:first-child, .spec-table th:nth-child(2) {
+    text-align: left;
+  }
+
+  .spec-table td {
+    text-align: right;
+    padding: 9px 14px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #c8c3ba;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .spec-table td:first-child, .spec-table td:nth-child(2) {
+    text-align: left;
+  }
+
   .spec-table tr:last-child td { border-bottom: none; }
-  .wt-class { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--muted); width: 36px; }
-  .flex-badge { display: inline-block; font-size: 10px; letter-spacing: 0.1em; padding: 2px 7px; border: 1px solid var(--border); color: var(--muted); }
-  .torque-val { color: var(--gold); }
-  .spec-table tr:hover td { background: #1a1a1a; }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+  .wt-class {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--muted);
+    width: 36px;
+  }
+
+  .flex-badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 2px 7px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .torque-val {
+    color: var(--gold);
+  }
+
+  .spec-table tr:hover td {
+    background: #1a1a1a;
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 56px 0;
+  }
+
+  /* Fujikura comparison */
   .ventus-section { margin-bottom: 56px; }
-  .ventus-intro { font-size: 11.5px; line-height: 1.8; color: #a09a94; margin-bottom: 28px; }
-  .ventus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 16px; }
-  .ventus-card { background: var(--surface); padding: 22px 20px; }
-  .ventus-color-label { display: flex; align-items: center; gap: 9px; margin-bottom: 6px; }
-  .ventus-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .ventus-color-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; letter-spacing: 0.05em; }
-  .ventus-profile-tag { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+
+  .ventus-intro {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .ventus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 16px;
+  }
+
+  .ventus-card {
+    background: var(--surface);
+    padding: 22px 20px;
+  }
+
+  .ventus-color-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 6px;
+  }
+
+  .ventus-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .ventus-color-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .ventus-profile-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
   .ventus-row { margin-bottom: 14px; }
-  .ventus-brand { font-size: 8.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
-  .ventus-shaft-name { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-  .ventus-detail { font-size: 10.5px; line-height: 1.6; color: #6a6560; }
-  .ventus-vs { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: #333; margin: 12px 0; text-align: center; }
-  .ventus-note { font-size: 10px; line-height: 1.7; color: #55504a; border-top: 1px solid var(--border); padding-top: 14px; }
-  footer { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid #3a3530; transition: color 0.2s, border-color 0.2s; }
-  footer a:hover { color: var(--gold); border-bottom-color: var(--gold); }
-  @media (max-width: 640px) { .summary-grid { grid-template-columns: 1fr; } .ventus-grid { grid-template-columns: 1fr; } .profile-table { font-size: 10px; } footer { flex-direction: column; } }
+
+  .ventus-brand {
+    font-size: 8.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2px;
+  }
+
+  .ventus-shaft-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .ventus-detail {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .ventus-vs {
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #333;
+    margin: 12px 0;
+    text-align: center;
+  }
+
+  .ventus-note {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid #3a3530;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  footer a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  @media (max-width: 640px) {
+    .summary-grid { grid-template-columns: 1fr; }
+    .ventus-grid { grid-template-columns: 1fr; }
+    .profile-table { font-size: 10px; }
+    footer { flex-direction: column; }
+  }
 </style>
 </head>
 <body>
 <div class="page">
+
+  <!-- Header -->
   <header class="header">
     <div class="brand">Honma Golf — T//World TW767</div>
     <h1>Vizard <em>EZ</em> Premium Shaft Comparison</h1>
     <div class="subtitle">EZ-A &nbsp;·&nbsp; EZ-P &nbsp;·&nbsp; EZ-Z &nbsp;·&nbsp; Custom Order Shafts &nbsp;·&nbsp; Made in Sakata, Japan</div>
   </header>
+
+  <!-- Summary cards -->
   <section class="summary-grid">
     <div class="summary-card">
-      <div class="shaft-label"><div class="shaft-dot dot-a"></div><div class="shaft-name a">EZ-A</div></div>
+      <div class="shaft-label">
+        <div class="shaft-dot dot-a"></div>
+        <div class="shaft-name a">EZ-A</div>
+      </div>
       <div class="kick-point">Mid-Low Kick Point</div>
-      <div class="badges"><span class="badge">High Launch</span><span class="badge">Mid Spin</span><span class="badge">757 MA</span></div>
+      <div class="badges">
+        <span class="badge">High Launch</span>
+        <span class="badge">Mid Spin</span>
+        <span class="badge">757 MA</span>
+      </div>
       <div class="summary-text">Firm butt and mid sections with a softer Ni-Ti alloy tip that allows controlled release through impact. Suited to players with a descending attack angle, or those who struggle to release the club. The tip construction gives a responsive snap at impact while the stiff mid and butt sections provide stability and feel of control.</div>
       <div class="predecessor">Successor to <span>VIZARD MA</span></div>
     </div>
     <div class="summary-card">
-      <div class="shaft-label"><div class="shaft-dot dot-p"></div><div class="shaft-name p">EZ-P</div></div>
+      <div class="shaft-label">
+        <div class="shaft-dot dot-p"></div>
+        <div class="shaft-name p">EZ-P</div>
+      </div>
       <div class="kick-point">Mid-High Kick Point</div>
-      <div class="badges"><span class="badge">High Launch</span><span class="badge">Low Spin</span><span class="badge">757 MP</span></div>
+      <div class="badges">
+        <span class="badge">High Launch</span>
+        <span class="badge">Low Spin</span>
+        <span class="badge">757 MP</span>
+      </div>
       <div class="summary-text">Firm at both butt and tip, with a softer mid section that generates whip and a late release through impact. Draw bias achieved by extensive layering of ultra-high-strength Toray T1100G throughout. The distance-oriented option for a neutral delivery. Smooth, accessible feel that bridges the gap between EZ-A and EZ-Z.</div>
       <div class="predecessor">Successor to <span>VIZARD MP</span></div>
     </div>
     <div class="summary-card">
-      <div class="shaft-label"><div class="shaft-dot dot-z"></div><div class="shaft-name z">EZ-Z</div></div>
+      <div class="shaft-label">
+        <div class="shaft-dot dot-z"></div>
+        <div class="shaft-name z">EZ-Z</div>
+      </div>
       <div class="kick-point">High Kick Point</div>
-      <div class="badges"><span class="badge">Mid Launch</span><span class="badge">Low Spin</span><span class="badge">757 FZ</span></div>
+      <div class="badges">
+        <span class="badge">Mid Launch</span>
+        <span class="badge">Low Spin</span>
+        <span class="badge">757 FZ</span>
+      </div>
       <div class="summary-text">Softer at the butt, building to maximum firmness at the mid and tip. The shaft loads in the upper section during the downswing and resists releasing at the tip. Rigid tip section built with layers of high-strength Toray M40X carbon fiber. For strong swingers who are fighting a ballooning flight or excess spin. Most workable of the three.</div>
       <div class="predecessor">Successor to <span>VIZARD FZ</span></div>
     </div>
   </section>
+
+  <!-- Stiffness profiles -->
   <section class="profile-section">
-    <div class="section-title">Stiffness Profile — Butt / Mid / Tip (filled = firmest)</div>
+    <div class="section-title">Stiffness Profile — Butt / Mid / Tip (★★★ = firmest)</div>
     <table class="profile-table">
-      <thead><tr><th>Shaft</th><th>Color</th><th>Butt</th><th>Mid</th><th>Tip</th><th>Character</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Shaft</th>
+          <th>Color</th>
+          <th>Butt</th>
+          <th>Mid</th>
+          <th>Tip</th>
+          <th>Character</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td><span class="shaft-id" style="color:var(--accent-a)">EZ-A</span></td><td style="color:var(--muted)">Red</td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td><td style="font-size:10px;color:var(--muted)">Firm, controlled release</td></tr>
-        <tr><td><span class="shaft-id" style="color:var(--accent-p)">EZ-P</span></td><td style="color:var(--muted)">Blue</td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td style="font-size:10px;color:var(--muted)">Active mid, late release</td></tr>
-        <tr><td><span class="shaft-id" style="color:var(--accent-z)">EZ-Z</span></td><td style="color:var(--muted)">Gunmetal</td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td style="font-size:10px;color:var(--muted)">Firm tip, penetrating flight</td></tr>
+        <tr>
+          <td><span class="shaft-id" style="color:var(--accent-a)">EZ-A</span></td>
+          <td style="color:var(--muted)">Red</td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td>
+          <td style="font-size:10px; color:var(--muted)">Firm, controlled release</td>
+        </tr>
+        <tr>
+          <td><span class="shaft-id" style="color:var(--accent-p)">EZ-P</span></td>
+          <td style="color:var(--muted)">Blue</td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
+          <td style="font-size:10px; color:var(--muted)">Active mid, late release</td>
+        </tr>
+        <tr>
+          <td><span class="shaft-id" style="color:var(--accent-z)">EZ-Z</span></td>
+          <td style="color:var(--muted)">Gunmetal</td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
+          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
+          <td style="font-size:10px; color:var(--muted)">Firm tip, penetrating flight</td>
+        </tr>
       </tbody>
     </table>
   </section>
+
   <hr class="divider">
+
+  <!-- Spec tables -->
   <div class="section-title">Full Specifications — Weight &amp; Torque by Flex</div>
+
+  <!-- EZ-A -->
   <div class="shaft-section">
-    <div class="shaft-header"><div class="shaft-section-name a">EZ-A</div><div class="shaft-desc">Mid-Low Kick Point &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Mid Spin</div></div>
-    <table class="spec-table"><thead><tr><th>Wt Class</th><th>Flex</th><th>Weight</th><th>Torque</th></tr></thead><tbody>
-      <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>52.5 g</td><td class="torque-val">4.75°</td></tr>
-      <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>55.5 g</td><td class="torque-val">4.65°</td></tr>
-      <tr><td class="wt-class">60</td><td><span class="flex-badge">S</span></td><td>62.5 g</td><td class="torque-val">4.00°</td></tr>
-      <tr><td class="wt-class">60</td><td><span class="flex-badge">X</span></td><td>65.5 g</td><td class="torque-val">3.90°</td></tr>
-      <tr><td class="wt-class">70</td><td><span class="flex-badge">S</span></td><td>72.5 g</td><td class="torque-val">3.50°</td></tr>
-      <tr><td class="wt-class">70</td><td><span class="flex-badge">X</span></td><td>75.5 g</td><td class="torque-val">3.40°</td></tr>
-    </tbody></table>
+    <div class="shaft-header">
+      <div class="shaft-section-name a">EZ-A</div>
+      <div class="shaft-desc">Mid-Low Kick Point &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Mid Spin</div>
+    </div>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Wt Class</th>
+          <th>Flex</th>
+          <th>Weight</th>
+          <th>Torque</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>52.5 g</td><td class="torque-val">4.75°</td></tr>
+        <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>55.5 g</td><td class="torque-val">4.65°</td></tr>
+        <tr><td class="wt-class">60</td><td><span class="flex-badge">S</span></td><td>62.5 g</td><td class="torque-val">4.00°</td></tr>
+        <tr><td class="wt-class">60</td><td><span class="flex-badge">X</span></td><td>65.5 g</td><td class="torque-val">3.90°</td></tr>
+        <tr><td class="wt-class">70</td><td><span class="flex-badge">S</span></td><td>72.5 g</td><td class="torque-val">3.50°</td></tr>
+        <tr><td class="wt-class">70</td><td><span class="flex-badge">X</span></td><td>75.5 g</td><td class="torque-val">3.40°</td></tr>
+      </tbody>
+    </table>
   </div>
+
+  <!-- EZ-P -->
   <div class="shaft-section">
-    <div class="shaft-header"><div class="shaft-section-name p">EZ-P</div><div class="shaft-desc">Mid-High Kick Point &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Low Spin</div></div>
-    <table class="spec-table"><thead><tr><th>Wt Class</th><th>Flex</th><th>Weight</th><th>Torque</th></tr></thead><tbody>
-      <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>53.0 g</td><td class="torque-val">4.80°</td></tr>
-      <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>56.0 g</td><td class="torque-val">4.70°</td></tr>
-      <tr><td class="wt-class">60</td><td><span class="flex-badge">S</span></td><td>64.5 g</td><td class="torque-val">4.05°</td></tr>
-      <tr><td class="wt-class">60</td><td><span class="flex-badge">X</span></td><td>67.5 g</td><td class="torque-val">3.95°</td></tr>
-      <tr><td class="wt-class">70</td><td><span class="flex-badge">S</span></td><td>74.5 g</td><td class="torque-val">3.55°</td></tr>
-      <tr><td class="wt-class">70</td><td><span class="flex-badge">X</span></td><td>77.5 g</td><td class="torque-val">3.45°</td></tr>
-    </tbody></table>
+    <div class="shaft-header">
+      <div class="shaft-section-name p">EZ-P</div>
+      <div class="shaft-desc">Mid-High Kick Point &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Low Spin</div>
+    </div>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Wt Class</th>
+          <th>Flex</th>
+          <th>Weight</th>
+          <th>Torque</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>53.0 g</td><td class="torque-val">4.80°</td></tr>
+        <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>56.0 g</td><td class="torque-val">4.70°</td></tr>
+        <tr><td class="wt-class">60</td><td><span class="flex-badge">S</span></td><td>64.5 g</td><td class="torque-val">4.05°</td></tr>
+        <tr><td class="wt-class">60</td><td><span class="flex-badge">X</span></td><td>67.5 g</td><td class="torque-val">3.95°</td></tr>
+        <tr><td class="wt-class">70</td><td><span class="flex-badge">S</span></td><td>74.5 g</td><td class="torque-val">3.55°</td></tr>
+        <tr><td class="wt-class">70</td><td><span class="flex-badge">X</span></td><td>77.5 g</td><td class="torque-val">3.45°</td></tr>
+      </tbody>
+    </table>
   </div>
+
+  <!-- EZ-Z -->
   <div class="shaft-section">
-    <div class="shaft-header"><div class="shaft-section-name z">EZ-Z</div><div class="shaft-desc">High Kick Point &nbsp;·&nbsp; Mid Launch &nbsp;·&nbsp; Low Spin</div></div>
-    <table class="spec-table"><thead><tr><th>Wt Class</th><th>Flex</th><th>Weight</th><th>Torque</th></tr></thead><tbody>
-      <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>51.5 g</td><td class="torque-val">4.90°</td></tr>
-      <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>54.5 g</td><td class="torque-val">4.80°</td></tr>
-      <tr><td class="wt-class">60</td><td><span class="flex-badge">S</span></td><td>63.0 g</td><td class="torque-val">3.90°</td></tr>
-      <tr><td class="wt-class">60</td><td><span class="flex-badge">X</span></td><td>66.0 g</td><td class="torque-val">3.80°</td></tr>
-      <tr><td class="wt-class">70</td><td><span class="flex-badge">S</span></td><td>70.0 g</td><td class="torque-val">3.45°</td></tr>
-      <tr><td class="wt-class">70</td><td><span class="flex-badge">X</span></td><td>73.0 g</td><td class="torque-val">3.35°</td></tr>
-    </tbody></table>
+    <div class="shaft-header">
+      <div class="shaft-section-name z">EZ-Z</div>
+      <div class="shaft-desc">High Kick Point &nbsp;·&nbsp; Mid Launch &nbsp;·&nbsp; Low Spin</div>
+    </div>
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Wt Class</th>
+          <th>Flex</th>
+          <th>Weight</th>
+          <th>Torque</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>51.5 g</td><td class="torque-val">4.90°</td></tr>
+        <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>54.5 g</td><td class="torque-val">4.80°</td></tr>
+        <tr><td class="wt-class">60</td><td><span class="flex-badge">S</span></td><td>63.0 g</td><td class="torque-val">3.90°</td></tr>
+        <tr><td class="wt-class">60</td><td><span class="flex-badge">X</span></td><td>66.0 g</td><td class="torque-val">3.80°</td></tr>
+        <tr><td class="wt-class">70</td><td><span class="flex-badge">S</span></td><td>70.0 g</td><td class="torque-val">3.45°</td></tr>
+        <tr><td class="wt-class">70</td><td><span class="flex-badge">X</span></td><td>73.0 g</td><td class="torque-val">3.35°</td></tr>
+      </tbody>
+    </table>
   </div>
+
   <hr class="divider">
+
+  <!-- Fujikura VENTUS comparison -->
   <section class="ventus-section">
     <div class="section-title">VIZARD EZ vs. Fujikura VENTUS — Color Philosophy Compared</div>
-    <p class="ventus-intro">Both Honma and Fujikura use the same color system to communicate shaft character. Red signals the highest launch, Blue occupies the mid-high launch / low-spin position, and Black or Gunmetal represents the most penetrating, lowest-spin option. The profiles map to one another almost directly — though each brand achieves them through distinct proprietary materials and construction philosophies.</p>
+    <p class="ventus-intro">Both Honma and Fujikura use the same color system to communicate shaft character across their iron and wood shaft lineups. Red signals the highest launch, Blue occupies the mid-high launch/low-spin position, and Black or Gunmetal represents the most penetrating, lowest-spin option. The profiles map to one another almost directly — though each brand achieves them through distinct proprietary materials and construction philosophies.</p>
+
     <div class="ventus-grid">
+
+      <!-- Red -->
       <div class="ventus-card">
-        <div class="ventus-color-label"><div class="ventus-dot" style="background:var(--accent-a)"></div><div class="ventus-color-name" style="color:var(--accent-a)">Red</div></div>
+        <div class="ventus-color-label">
+          <div class="ventus-dot" style="background:var(--accent-a)"></div>
+          <div class="ventus-color-name" style="color:var(--accent-a)">Red</div>
+        </div>
         <div class="ventus-profile-tag">High Launch &nbsp;·&nbsp; Mid Spin</div>
         <div class="ventus-row">
           <div class="ventus-brand">Honma</div>
@@ -171,8 +650,13 @@
           <div class="ventus-detail">Low to low-mid bend point. Mid-high launch and mid-spin profile. Designed for players seeking a higher, more assisted ball flight.</div>
         </div>
       </div>
+
+      <!-- Blue -->
       <div class="ventus-card">
-        <div class="ventus-color-label"><div class="ventus-dot" style="background:var(--accent-p)"></div><div class="ventus-color-name" style="color:var(--accent-p)">Blue</div></div>
+        <div class="ventus-color-label">
+          <div class="ventus-dot" style="background:var(--accent-p)"></div>
+          <div class="ventus-color-name" style="color:var(--accent-p)">Blue</div>
+        </div>
         <div class="ventus-profile-tag">High Launch &nbsp;·&nbsp; Low Spin</div>
         <div class="ventus-row">
           <div class="ventus-brand">Honma</div>
@@ -186,8 +670,13 @@
           <div class="ventus-detail">Mid bend point. Ultra-stiff tip, firm handle. Mid-launch, low-spin wood shaft built for consistency and speed.</div>
         </div>
       </div>
+
+      <!-- Black / Gunmetal -->
       <div class="ventus-card">
-        <div class="ventus-color-label"><div class="ventus-dot" style="background:var(--accent-z)"></div><div class="ventus-color-name" style="color:var(--accent-z)">Gunmetal / Black</div></div>
+        <div class="ventus-color-label">
+          <div class="ventus-dot" style="background:var(--accent-z)"></div>
+          <div class="ventus-color-name" style="color:var(--accent-z)">Gunmetal / Black</div>
+        </div>
         <div class="ventus-profile-tag">Mid Launch &nbsp;·&nbsp; Low Spin</div>
         <div class="ventus-row">
           <div class="ventus-brand">Honma</div>
@@ -201,13 +690,18 @@
           <div class="ventus-detail">High bend point. Ultra-stiff tip and handle via VeloCore+ technology. Maximum stability, lowest spin, most penetrating flight.</div>
         </div>
       </div>
-    </div>
+
+    </div><!-- /.ventus-grid -->
+
     <p class="ventus-note">Note on materials: Honma uses Ni-Ti alloy (EZ-A tip), TORAYCA® T1100G (EZ-P mid bias), and TORAYCA® M40X (EZ-Z tip) to tune each shaft's character. Fujikura achieves similar outcomes through its proprietary multi-material bias core VeloCore+ technology. Same color language, different engineering paths.</p>
   </section>
+
+  <!-- Footer -->
   <footer>
     <span>Sources: <a href="https://honmagolf-ec.com/club/driver/tw767lsmd?srsltid=AfmBOorIYCtb5mZGfXk3R1uH8h6V7uailUFsiw4phI1OzF2R59-FtwzH" target="_blank" rel="noopener">honmagolf-ec.com</a> &nbsp;·&nbsp; <a href="https://irp.cdn-website.com/c07144c5/files/uploaded/TW767_Product_Catalogue.pdf" target="_blank" rel="noopener">TW767 Dealer Catalogue</a></span>
     <span>All shafts custom order · Made in Sakata, Japan</span>
   </footer>
+
 </div>
 </body>
 </html>

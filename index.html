@@ -55,8 +55,24 @@
   .torque-val { color: var(--gold); }
   .spec-table tr:hover td { background: #1a1a1a; }
   .divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+  .ventus-section { margin-bottom: 56px; }
+  .ventus-intro { font-size: 11.5px; line-height: 1.8; color: #a09a94; margin-bottom: 28px; }
+  .ventus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 16px; }
+  .ventus-card { background: var(--surface); padding: 22px 20px; }
+  .ventus-color-label { display: flex; align-items: center; gap: 9px; margin-bottom: 6px; }
+  .ventus-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .ventus-color-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; letter-spacing: 0.05em; }
+  .ventus-profile-tag { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+  .ventus-row { margin-bottom: 14px; }
+  .ventus-brand { font-size: 8.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+  .ventus-shaft-name { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .ventus-detail { font-size: 10.5px; line-height: 1.6; color: #6a6560; }
+  .ventus-vs { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: #333; margin: 12px 0; text-align: center; }
+  .ventus-note { font-size: 10px; line-height: 1.7; color: #55504a; border-top: 1px solid var(--border); padding-top: 14px; }
   footer { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  @media (max-width: 640px) { .summary-grid { grid-template-columns: 1fr; } footer { flex-direction: column; } }
+  footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid #3a3530; transition: color 0.2s, border-color 0.2s; }
+  footer a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  @media (max-width: 640px) { .summary-grid { grid-template-columns: 1fr; } .ventus-grid { grid-template-columns: 1fr; } .profile-table { font-size: 10px; } footer { flex-direction: column; } }
 </style>
 </head>
 <body>
@@ -78,14 +94,14 @@
       <div class="shaft-label"><div class="shaft-dot dot-p"></div><div class="shaft-name p">EZ-P</div></div>
       <div class="kick-point">Mid-High Kick Point</div>
       <div class="badges"><span class="badge">High Launch</span><span class="badge">Low Spin</span><span class="badge">757 MP</span></div>
-      <div class="summary-text">Firm at both butt and tip, with a softer mid section that generates whip and a late release through impact. Draw bias achieved by extensive layering of ultra-high-strength Toray T1100G throughout. The distance-oriented option for a neutral delivery.</div>
+      <div class="summary-text">Firm at both butt and tip, with a softer mid section that generates whip and a late release through impact. Draw bias achieved by extensive layering of ultra-high-strength Toray T1100G throughout. The distance-oriented option for a neutral delivery. Smooth, accessible feel that bridges the gap between EZ-A and EZ-Z.</div>
       <div class="predecessor">Successor to <span>VIZARD MP</span></div>
     </div>
     <div class="summary-card">
       <div class="shaft-label"><div class="shaft-dot dot-z"></div><div class="shaft-name z">EZ-Z</div></div>
       <div class="kick-point">High Kick Point</div>
       <div class="badges"><span class="badge">Mid Launch</span><span class="badge">Low Spin</span><span class="badge">757 FZ</span></div>
-      <div class="summary-text">Softer at the butt, building to maximum firmness at the mid and tip. Rigid tip section built with layers of high-strength Toray M40X carbon fiber. For strong swingers who are fighting a ballooning flight or excess spin. Most workable of the three.</div>
+      <div class="summary-text">Softer at the butt, building to maximum firmness at the mid and tip. The shaft loads in the upper section during the downswing and resists releasing at the tip. Rigid tip section built with layers of high-strength Toray M40X carbon fiber. For strong swingers who are fighting a ballooning flight or excess spin. Most workable of the three.</div>
       <div class="predecessor">Successor to <span>VIZARD FZ</span></div>
     </div>
   </section>
@@ -94,28 +110,16 @@
     <table class="profile-table">
       <thead><tr><th>Shaft</th><th>Color</th><th>Butt</th><th>Mid</th><th>Tip</th><th>Character</th></tr></thead>
       <tbody>
-        <tr><td><span class="shaft-id" style="color:var(--accent-a)">EZ-A</span></td><td style="color:var(--muted)">Red</td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td>
-          <td style="font-size:10px;color:var(--muted)">Firm, controlled release</td></tr>
-        <tr><td><span class="shaft-id" style="color:var(--accent-p)">EZ-P</span></td><td style="color:var(--muted)">Blue</td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
-          <td style="font-size:10px;color:var(--muted)">Active mid, late release</td></tr>
-        <tr><td><span class="shaft-id" style="color:var(--accent-z)">EZ-Z</span></td><td style="color:var(--muted)">Gunmetal</td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
-          <td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td>
-          <td style="font-size:10px;color:var(--muted)">Firm tip, penetrating flight</td></tr>
+        <tr><td><span class="shaft-id" style="color:var(--accent-a)">EZ-A</span></td><td style="color:var(--muted)">Red</td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td><td style="font-size:10px;color:var(--muted)">Firm, controlled release</td></tr>
+        <tr><td><span class="shaft-id" style="color:var(--accent-p)">EZ-P</span></td><td style="color:var(--muted)">Blue</td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td style="font-size:10px;color:var(--muted)">Active mid, late release</td></tr>
+        <tr><td><span class="shaft-id" style="color:var(--accent-z)">EZ-Z</span></td><td style="color:var(--muted)">Gunmetal</td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td><div class="stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></td><td style="font-size:10px;color:var(--muted)">Firm tip, penetrating flight</td></tr>
       </tbody>
     </table>
   </section>
   <hr class="divider">
   <div class="section-title">Full Specifications — Weight &amp; Torque by Flex</div>
   <div class="shaft-section">
-    <div class="shaft-header"><div class="shaft-section-name a">EZ-A</div><div class="shaft-desc">Mid-Low Kick &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Mid Spin</div></div>
+    <div class="shaft-header"><div class="shaft-section-name a">EZ-A</div><div class="shaft-desc">Mid-Low Kick Point &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Mid Spin</div></div>
     <table class="spec-table"><thead><tr><th>Wt Class</th><th>Flex</th><th>Weight</th><th>Torque</th></tr></thead><tbody>
       <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>52.5 g</td><td class="torque-val">4.75°</td></tr>
       <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>55.5 g</td><td class="torque-val">4.65°</td></tr>
@@ -126,7 +130,7 @@
     </tbody></table>
   </div>
   <div class="shaft-section">
-    <div class="shaft-header"><div class="shaft-section-name p">EZ-P</div><div class="shaft-desc">Mid-High Kick &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Low Spin</div></div>
+    <div class="shaft-header"><div class="shaft-section-name p">EZ-P</div><div class="shaft-desc">Mid-High Kick Point &nbsp;·&nbsp; High Launch &nbsp;·&nbsp; Low Spin</div></div>
     <table class="spec-table"><thead><tr><th>Wt Class</th><th>Flex</th><th>Weight</th><th>Torque</th></tr></thead><tbody>
       <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>53.0 g</td><td class="torque-val">4.80°</td></tr>
       <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>56.0 g</td><td class="torque-val">4.70°</td></tr>
@@ -137,7 +141,7 @@
     </tbody></table>
   </div>
   <div class="shaft-section">
-    <div class="shaft-header"><div class="shaft-section-name z">EZ-Z</div><div class="shaft-desc">High Kick &nbsp;·&nbsp; Mid Launch &nbsp;·&nbsp; Low Spin</div></div>
+    <div class="shaft-header"><div class="shaft-section-name z">EZ-Z</div><div class="shaft-desc">High Kick Point &nbsp;·&nbsp; Mid Launch &nbsp;·&nbsp; Low Spin</div></div>
     <table class="spec-table"><thead><tr><th>Wt Class</th><th>Flex</th><th>Weight</th><th>Torque</th></tr></thead><tbody>
       <tr><td class="wt-class">50</td><td><span class="flex-badge">R</span></td><td>51.5 g</td><td class="torque-val">4.90°</td></tr>
       <tr><td class="wt-class">50</td><td><span class="flex-badge">S</span></td><td>54.5 g</td><td class="torque-val">4.80°</td></tr>
@@ -147,8 +151,61 @@
       <tr><td class="wt-class">70</td><td><span class="flex-badge">X</span></td><td>73.0 g</td><td class="torque-val">3.35°</td></tr>
     </tbody></table>
   </div>
+  <hr class="divider">
+  <section class="ventus-section">
+    <div class="section-title">VIZARD EZ vs. Fujikura VENTUS — Color Philosophy Compared</div>
+    <p class="ventus-intro">Both Honma and Fujikura use the same color system to communicate shaft character. Red signals the highest launch, Blue occupies the mid-high launch / low-spin position, and Black or Gunmetal represents the most penetrating, lowest-spin option. The profiles map to one another almost directly — though each brand achieves them through distinct proprietary materials and construction philosophies.</p>
+    <div class="ventus-grid">
+      <div class="ventus-card">
+        <div class="ventus-color-label"><div class="ventus-dot" style="background:var(--accent-a)"></div><div class="ventus-color-name" style="color:var(--accent-a)">Red</div></div>
+        <div class="ventus-profile-tag">High Launch &nbsp;·&nbsp; Mid Spin</div>
+        <div class="ventus-row">
+          <div class="ventus-brand">Honma</div>
+          <div class="ventus-shaft-name">VIZARD EZ-A</div>
+          <div class="ventus-detail">Mid-low kick point. Softer Ni-Ti alloy tip for a controlled, snappy release. Engineered for high trajectory and distance.</div>
+        </div>
+        <div class="ventus-vs">vs</div>
+        <div class="ventus-row">
+          <div class="ventus-brand">Fujikura</div>
+          <div class="ventus-shaft-name">VENTUS Red</div>
+          <div class="ventus-detail">Low to low-mid bend point. Mid-high launch and mid-spin profile. Designed for players seeking a higher, more assisted ball flight.</div>
+        </div>
+      </div>
+      <div class="ventus-card">
+        <div class="ventus-color-label"><div class="ventus-dot" style="background:var(--accent-p)"></div><div class="ventus-color-name" style="color:var(--accent-p)">Blue</div></div>
+        <div class="ventus-profile-tag">High Launch &nbsp;·&nbsp; Low Spin</div>
+        <div class="ventus-row">
+          <div class="ventus-brand">Honma</div>
+          <div class="ventus-shaft-name">VIZARD EZ-P</div>
+          <div class="ventus-detail">Mid-high kick point. Stiff butt and tip with an active mid section for a late, draw-biased release. "Stable and straight."</div>
+        </div>
+        <div class="ventus-vs">vs</div>
+        <div class="ventus-row">
+          <div class="ventus-brand">Fujikura</div>
+          <div class="ventus-shaft-name">VENTUS Blue</div>
+          <div class="ventus-detail">Mid bend point. Ultra-stiff tip, firm handle. Mid-launch, low-spin wood shaft built for consistency and speed.</div>
+        </div>
+      </div>
+      <div class="ventus-card">
+        <div class="ventus-color-label"><div class="ventus-dot" style="background:var(--accent-z)"></div><div class="ventus-color-name" style="color:var(--accent-z)">Gunmetal / Black</div></div>
+        <div class="ventus-profile-tag">Mid Launch &nbsp;·&nbsp; Low Spin</div>
+        <div class="ventus-row">
+          <div class="ventus-brand">Honma</div>
+          <div class="ventus-shaft-name">VIZARD EZ-Z</div>
+          <div class="ventus-detail">High kick point. Stiff butt, building to a rigid Toray M40X tip. Resists early release; penetrating, anti-ballooning flight.</div>
+        </div>
+        <div class="ventus-vs">vs</div>
+        <div class="ventus-row">
+          <div class="ventus-brand">Fujikura</div>
+          <div class="ventus-shaft-name">VENTUS Black</div>
+          <div class="ventus-detail">High bend point. Ultra-stiff tip and handle via VeloCore+ technology. Maximum stability, lowest spin, most penetrating flight.</div>
+        </div>
+      </div>
+    </div>
+    <p class="ventus-note">Note on materials: Honma uses Ni-Ti alloy (EZ-A tip), TORAYCA® T1100G (EZ-P mid bias), and TORAYCA® M40X (EZ-Z tip) to tune each shaft's character. Fujikura achieves similar outcomes through its proprietary multi-material bias core VeloCore+ technology. Same color language, different engineering paths.</p>
+  </section>
   <footer>
-    <span>Sources: Honma International, honmagolf-ec.com (Japan), TW767 Dealer Catalogue</span>
+    <span>Sources: <a href="https://honmagolf-ec.com/club/driver/tw767lsmd?srsltid=AfmBOorIYCtb5mZGfXk3R1uH8h6V7uailUFsiw4phI1OzF2R59-FtwzH" target="_blank" rel="noopener">honmagolf-ec.com</a> &nbsp;·&nbsp; <a href="https://irp.cdn-website.com/c07144c5/files/uploaded/TW767_Product_Catalogue.pdf" target="_blank" rel="noopener">TW767 Dealer Catalogue</a></span>
     <span>All shafts custom order · Made in Sakata, Japan</span>
   </footer>
 </div>
